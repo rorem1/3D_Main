@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManger : MonoBehaviour
 {
     public static GameManger instance;
-    [SerializeField] private TextMeshPro coinText;
+    [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private GameObject gameClearText;
     
     public int coinCount = 10;
@@ -20,9 +20,10 @@ public class GameManger : MonoBehaviour
         instance = this;
         
         gameClearText.gameObject.SetActive(false);
-        
-        coinText.text = coinCount.ToString();
-        
+
+        coinText.text = "REMAIN : " + coinCount;
+        //coinText.text = coinCount.ToString();
+
     }
     private void Update()
     {
@@ -35,7 +36,8 @@ public class GameManger : MonoBehaviour
     public void AddCoin()
     {
         coinCount--;
-        coinText.text = coinCount.ToString();
+        coinText.text = "REMAIN : " + coinCount;
+        //coinText.text = coinCount.ToString();
     }
     private void GameClear()
     {
